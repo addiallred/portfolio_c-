@@ -1,0 +1,1 @@
+Functions similar to facebook. Has friends, can add friends, etc. 

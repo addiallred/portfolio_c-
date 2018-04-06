@@ -1,0 +1,1 @@
+Reads in file information about the current human standing and zombies and calculates how many nights until the zombies kill all of the humans. 

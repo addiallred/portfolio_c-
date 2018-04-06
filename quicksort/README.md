@@ -1,0 +1,4 @@
+Lengthmismatch - Is a program that creates an exception error for if the lengths of any input provided is not the same
+Functor - creating a functor that will read in a string containing letters and number, and will caluclate the value of the string based off of the value of its content. Then it will compare the value of the sum for two strings and will return true of false if one string is less than another string
+Quicksort - implements quicksort on any given input
+Thanksgiving - reads in the number of calories of turkey and potatoes and sees if it is able to make a perfect matching if you can have every plate have the same value as another plate. this implement quicksort and lengthmismatch.

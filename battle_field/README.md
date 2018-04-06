@@ -1,0 +1,1 @@
+Takes in information about two battle stations and the amount of soldiers, their power levels, weapons, etc, and executes a battle to see who the winner of the battles are. 

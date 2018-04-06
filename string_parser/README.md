@@ -1,0 +1,2 @@
+Stack - using the foundations of a linked list to create the data structure of a stack
+Stringparser - using a stack data type, it reads in various lines from a provided file, and parses the string so that it is in the correct format. For example (((hello))) would be parsed to be hello. (<<dagobah - (yoda+go)) will evaulate to be b. <> <<<((eve+boo+buzz) - >< <nemo) will evaulate to eboo. Etc. 
