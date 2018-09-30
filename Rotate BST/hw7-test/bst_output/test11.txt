@@ -1,0 +1,11 @@
+Running main() from gtest_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from BSTTest
+[ RUN      ] BSTTest.Test11_RemoveLeafLeftChild
+[       OK ] BSTTest.Test11_RemoveLeafLeftChild (81 ms)
+[----------] 1 test from BSTTest (88 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (125 ms total)
+[  PASSED  ] 1 test.

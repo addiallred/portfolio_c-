@@ -1,4 +1,16 @@
-Lengthmismatch - Is a program that creates an exception error for if the lengths of any input provided is not the same
-Functor - creating a functor that will read in a string containing letters and number, and will caluclate the value of the string based off of the value of its content. Then it will compare the value of the sum for two strings and will return true of false if one string is less than another string
-Quicksort - implements quicksort on any given input
-Thanksgiving - reads in the number of calories of turkey and potatoes and sees if it is able to make a perfect matching if you can have every plate have the same value as another plate. this implement quicksort and lengthmismatch.
+Addison Allred
+aallred@usc.edu
+hw5
+
+Quick sort: to compile and implement qsort.h, include it in the desired file to
+implement quicksort and complie the file as normal
+hw5.txt: contains 1c, 2, 3(excluding the tree)
+Tree.pdf: contains the recursive tree for problem 3
+LengthMismatch: to implement you need to include it in a program and
+use the exception created. Make sure when compile you use c++11
+functor: to compile, you will need a file that will implement the functor,
+and then when attempting to compile, compile the file and the functor.cpp
+file as well.
+Thanksgiving: a make file is provided which will create the Thanksgiving.o 
+file, a main needs to be provided so that it will allow 
+for the function to execute the function assign plates.

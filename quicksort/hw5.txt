@@ -1,0 +1,263 @@
+Addison Allred
+
+1c. The following array will have the pivot always be the second
+largest value or the second smallest value in the list:
+19.0 8.0 6.0 1.0 27.0 18.0 13.0 12.0 4.0 17.0
+For the first quicksort executed, the median calculation
+will take into consideration 19, 27, and 17. 
+From these vales, 19 is the median value, which is the 
+second largest in the array, so from this quicksort
+we wil resort in: 
+8.0 6.0 1.0 18.0 13.0 12.0 4.0 17.0   19.0 27.0
+Then we will execute quicksort on the right side
+of the unsorted array, we will take into consideration
+8, 18, and 17. From these values, 17 is the median, which
+is the second largest value in the array we are looking at
+and quicksort with this as the pivot will resort in the 
+following: 
+8.0 6.0 1.0 13.0 12.0 4.0    17.0 18.0
+Again, we will execute quicksort on the right side
+of the unsorted array, we will take into consideration
+8, 1, and 4. From these values, 4 is the median, which
+is the second smallest value in the array we are looking at
+and quicksort with this as the pivot will resort in the 
+following: 
+1.0 4.0    8.0 6.0 13.0 12.0
+now executing quicksort on the left side of the unsorted array, 
+we will have 8 6 and 12 be the values used to calculate the pivot
+using the median method, we get that 8 is the value that we will
+use as the pivot, which is the second smallest value in the array
+we will then get the following listing:
+6.0 8.0    13.0 12.0
+Executing quicksort on this side is arbitrary since we are only looking
+at two values so regardless of the values, the pivot will always be either
+the second largest or the second smallest since there is only two values.
+
+
+2. To break interpolation sort, and have an array that will go over
+every single value in the array list to attempt to find the 
+search value we are looking for, we would have an array such as;
+1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.01 100
+This breaks interpolation sort when we search for the value 1.01
+because, as we can observe from above, the array is clearly not uniformily
+distributed. So when calculating the value where we will search next
+in the array to find if 1.01 is there, it will have to iterate over
+every single value in the array before it reaches 1.01. We know this 
+because when calculating the values, the numers differ by so little
+that when calculating the index to look at next, the calculation itself
+does little to nothing and the only way that we move to the next value in 
+the array is because for each recursive call, since our a[m] will always
+less than x, except when m = 8, we will call the recursive call such
+that we add 1 to the starting value. This increments the value
+we start at by one from the original value of index. Now, the value of the
+index that we calculate to search in the graph, besides the plus start 
+value, will always be 0, since the difference between the value of 
+1.0 and 100 is so large, and the difference between 1.0 and 1.01 is 
+very negigable. So the only thing that is effecting the calculation of the
+index to search in the array is the plus start. So whenever we calculate 
+the index to search at, it will always calculate to the start value. So
+when we recursively call the function, and increase the start value by one
+we will look at every start value, or every value in the array of 0-9 
+until our start value is that of 8, which would result in the value that
+we are looking for in our array. This fact of the index always
+being that of the starting index can be observed through the following
+calculations:
+for the first calulation of the index to search at we have:
+(1.01-1/100-1)*(9) + 0 = 0 + 0 = 0, we can observe here that since
+we are calculating for the int, all decimal values, that would have been
+in the 0 for the first calculation such as: 0.00091, drops to be just 0
+so when we addd the start value to the function, which is just 0, we are 
+looking at the 0 value, which is less than 1.01, so we increase the start 
+value by 1. Now for the next calculation we have;
+(1.01 -1/100-1)*(8) + 1 = 0 + 1 = 1, we can observe here that once again
+the first calculation results in 0 since there is such a small difference 
+between 1.01 and 1 and such a large difference between 100 and 1, so the 
+only value that causes the index value to not be 0 is the start value, 
+which was increased to 1 since in the previous recursive call we already
+looked at the array listing where the index is 0. Then from this
+we observe that a[1] is still not the target value, so it will
+make another recursive call where it will increase the start value by 
+1 since the value of a[1] is less than that of the value of 1.01. Now
+this patteren where we caluculate the value of the index, which will
+always be the start value since it will always be (1.01-1/100-1)*(r-l)
+which since the first value for (1.01-1/100-1) is always going to be 
+0, anything times 0 will also be 0, so we will always there by be 
+observing the start value since the index we will observe will always add
+the start value to the calucation of the index value. From there, since
+we are making recursive calls where we increase the index value
+by one, which was the index we calculated to search, which was also
+the start value of the recursive call, we will then look at the next
+value in the array since the calculation of the index to look at will
+always be the start value since we are adding the start value to the
+calulation of 0 from the other part of the index calculation
+Thus, interpolation search breaks, since it will recursively look
+over every value in the array listed above since it is unevenly 
+distributed and will always calculate the index to search at as 
+the starting index in the recursive call, which each recursive call
+will then increase this calculated index(the start index) by a value
+of one. 
+
+Part a. 
+1. For the first if statement, when right is less than left, this will 
+only occure once for a call on the function because it will return a value 
+in the function, so the run time of inserction sort can be considered as 
+linear since it will only execute once because it will cause the function
+to reach the base case and return, so if we assume that
+there are multiple calls to the function and since the array at this
+point is less than that of 10 insertion sort runs in constant time
+so can be ignored for the runtime since it does not occure
+everysingle time the function is called, and will only execute once
+resulting in the termination of the function
+since it has reached the base case. So if the array is every n < 10, the
+run time will be constant, otherwise if the size of the array is n >=10,
+the run time will be that of the recursive run time we are calculating.
+The time calculation for the partition is that of theta of n
+since it calls on quick sort
+and partions the array in n time, and the call of linear search runs
+in theta of n time as well, this results in the run time,exculding the 
+recursive calls to be, n + n = 2n, but we can drop the constant so we get
+a run time of T(n) = theta(n) when n >=10, this is exculding the 
+recursive calls to the function which we will evaluate later.
+2. For the for loop, when we calculate smallest, if we have an array of 
+size n, since we are dividing the size of the array by 5, smallest will be 
+n/5, thus the for loop will iterate n/5 times. Because it will run n/5 
+times for the for loop, n/5 recursive calls will be made to quantile and
+these recursive cals to quantile run in theta of 1 time, so 
+the run time of the for loop with the calls to quantile is T(n/5). We
+now have a recursive run time that is T(n) = T(n/5) + theta(n) when n >= 10
+3. The call for pivot has the array be of size n/5. This is because for
+the call of pivot, it has the left value of the array be 0, and the 
+right side of the array be smallest -1, which the smallest is the size
+of the array divided by 5, so smallest-1 will give the index of n/5 -1
+which when starting at the index of 0, will result in a recursive call 
+of size T(n/5). Since we already have a T(n/5) in the recursive call from
+the for loop, we can add these together and get T(2n/5), and since
+we can throw out constants, this will just result in T(n/5), thus the 
+recursive call runtime is still T(n) = T(n/5) + theta(n) when n >=10.
+4. When we call the pivot function, the size of the array will be split 
+into subgroups of 5 arrays that thereby have a size of 5. Because of this,
+since we know that the array has to be at least larger than that of 10, so
+the minmum number of groups it could be split up into is that of three 
+groups, thereby comparing three values that are the median of their
+subgroup of 5, when we take the median of this value, we know that the
+value we calculate will be greater than at least the two values
+within its own division, and it will be greater than the lowest
+value used to compute the median, and thereby greater than the two
+values that are within the grouping of the lowest median value. If 
+we have a group of 15, 3*15 = 45/10 = 4.5, which above we found that there 
+will be at least 4 values the median is greater than, 5 if you include
+the lowest value median. Now, if we do not consider the lowest case when 
+we have an array of size roughly 15, for a more arbitrary array size,
+we know that when  calculating the median, the various values
+we will use to calculate the median will always be the median of their
+subgroup of 5, so thereby, all medians in the group are going to be 
+greater than two values that existed within the subdivision of the 
+grouping of 5. Now when computing the actual median from all of the 
+median values, we know tha the median will be greater than the amount
+of sub groups, divided by 2. So if there are n values that are divided 
+into subgroups of 5, the median of the medians should be n/2 through
+the listing, however it is not guarenteed to be this since the 
+variations and the division within the subgroups and distribution
+is not guarenteed to be equal and have the greatest values
+grouped with the greatest values and the smallest values with the 
+smallest values. Now,
+we know that the amount of subgroups is n and each one is divided into
+n/5. We also know that out of all of the values in the subgroup, since the
+pivot is greater than 1/2 of the medians, for the subgroups where the
+median is less than the median of all the medians, there is 3/5 values
+within this subgroup that are less than that of the median since the median
+from the subgroup has 2 values less than the median, and since the median
+itself is less than the median of all medians, we know that for this
+subdivision, there is atleast 3/5 of the values in the subgroup that are
+less than the pivot. Now because the median is the half point of all 
+sub group, we know that the size of the number of values that the
+pivot will be greater than is that of 3n/10, since the median is the 
+median of all of the different subgroups, which means, that there are 
+values within the subgroups that are guarenteed to be less than the median
+of all medians since the subgroups median was less than the median of all
+medians. it is same for the values of which we know to be larger than the
+median, or the pivot point that we are calculating. This is because from
+all of hte median, there are 1/2 of the values that are greater than the
+pivot that was calculated from the median of the median. From these medians
+that are larger than the pivot value, we know that since they are the
+median of their subgroup of 5, there is guarenteed to be 2 values greater 
+than the median. Because of this, we know that within this subgroup, since
+the median was greater than the pivot, 3 values within this subgroup
+is greater than the mean, so 3/5 of the values in the subgroup
+are greater than the median. Since the median calculated should be that of 
+n/2, meaning n/2 values are greater than it this isn't always true since
+the distribution of the subgroups could cause a subgroup where the median
+is greater than the pivot, but values in the subgroup are less than the
+pivot, so we thereby know that the only values we know can be guarenteed to
+be larger than the pivot is 3n/10. 
+5. Because we know that the pivot is guarenteed to be greater than 
+3n/10 of the values in the array and to be less than 3n/10 values in the 
+array as well, we know that the size of the recursive call will
+be that of, for the recursive call with the else if statement, if we
+have an array of size n, and we start at the first value in the 
+array of size n, because we are going to the pivot point as our right
+value, which we know will not be looking at the 3n/10 values that
+are greater than the pivot because it will exclude them in this recursive
+call, we have an array of size n - 3n/10 which is thereby 7n/10, so
+this recursive call will recurse on 7n/10 which means that it 
+has a run time of T(7n/10). For the recursive call that happens right
+after this one in the else statement, if we have an array of size n,
+the left side of the array, or the starting point, will be that of the
+pivot, and the end point will be the end point of the original array of 
+size n. Since the pivot is greater than 3n/10 values, when we call
+this recursive function, we are not looking at the 3n/10 values that are 
+less than the pivot, so we know that the size of the array is n - 3n/10
+which is 7n/10. So the recursive run time of this call is that of T(7n/10).
+If we were to add this recursive run time call and the other recursive run
+time call to the total recursive run time of the function we would get:
+T(n) = T(7n/10) + T(7n/10) + T(n/5) + theta(n), since we have two recursive
+calls that both run in T(7n/10), we can reduce one of them which would
+then result in a recursive run time of T(n) = T(7n/10) + T(n/5) + theta(n)
+6. The run time of the function quantile is there by 
+T(n) = T(7n/10) + T(n/5) + theta(n)
+
+
+Part b. 
+4.From the recursive call of the functions, and from the tree that we constructed
+above, we can see that the first layer of the recursive call, when added together
+the recursive calls made to quantile within the first layer it will sum to q(9n/10).
+The second layer of the recursive tree when summing together all of the calls to
+quantile it will result in the sum of q(81n/100). The third layer of the 
+recursive tree when summing together all fo the calls to quantile, which
+is the amount of work that the third layer does, we get q(729n/1000). From
+these three summations of the first three layers of the tree, we notice that 
+the ith layer will always do ((9/10)^i)n work will be done since ((9/10)^i)n
+calls to quantile will always be made. So, the total amount of work done is
+the summation from i = 0 to i = layers-1 of ((9/10)^i)n. By adding together
+the total work done by each layer, we will get the total amount of work done
+by the function, since each layer will execute ((9/10)^i)n. The amount of layers
+is shown bellow, but it will be that of log10/7(n/10).
+5. In the recursive call tree, we can notice that for 7n/10 we can put an upper
+bound for the max amount of calls then on all of the calls that follow
+down from 7n/10 because it will require the most amount of calls to reach the base
+case. We also know that based off of the function, the calls will terminate
+once we get to an array of size 10. So more specifically, since we will always
+have 7n/10 as an upper bound as the amount of items in our recursive call, 
+and want to continue down the layers until our array is of size 10, so we can 
+equate the formula (7n/10)^i = 10, where i is the number of layers. When we reach
+the value of i, such that our value is equal to 10 for the size of the array
+we know that the function will end, so no more recursive calls will be made
+so we have reached the end of the the calls and call tree. So solving for i
+which is the number of layers, we take the log of both sides and then divide
+so that i is on a side by itself so that you can solve for i, you result with
+log10/7(n/10). This is the number of layers that we will have in our function
+
+6. When looking at the work done for each layer, we notice that the 
+total amount of work done per layer is that of (9/10)^i*n, where i is the
+value of the layer of the tree that we are on. We are able to know
+the amount of layers that we will have from log10/7(n/10) as 
+calculated above. Because we know this will be the maximum amount of layers
+we can create the summation for the work done by the algorithm as 
+the summation from i = 0 to i = log10/7(n10) over (9/10)^i*n. In
+the pdf, you can observe the work done to simplify this summation, however
+we will end up with the resulting form: 10n - 9nlog10/7(n/10). Since we are
+subtracting -9nlog107(n/10), for our calculation of run time, we can over look
+this since it is not as dominate since it is subtracting the value. Thus, our
+run time of the function, from the summation of the amount of work done by
+ the algorithm
+is that of O(n), since you are able to drop the constant. 

@@ -1,0 +1,14 @@
+Running main() from gtest_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from RotateTest
+[ RUN      ] RotateTest.Stress2_SameKeys
+bst1: 66.195
+bst2: 94.238
+bst3: 186.757
+[       OK ] RotateTest.Stress2_SameKeys (5564 ms)
+[----------] 1 test from RotateTest (5571 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (5606 ms total)
+[  PASSED  ] 1 test.

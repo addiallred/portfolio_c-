@@ -1,0 +1,14 @@
+Running main() from gtest_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from BSTTest
+[ RUN      ] BSTTest.Stress5_InternalFind
+bst1: 28.52
+bst2: 44.947
+bst3: 85.01
+[       OK ] BSTTest.Stress5_InternalFind (2930 ms)
+[----------] 1 test from BSTTest (2936 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (2965 ms total)
+[  PASSED  ] 1 test.

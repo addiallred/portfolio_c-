@@ -1,0 +1,177 @@
+
+	FOUND: 0
+	FOUND: 1
+	FOUND: expansions = 1
+
+Test permitted1 passed
+
+	FOUND: 10
+	FOUND: 11
+	FOUND: expansions = 1
+
+Test permitted2 passed
+
+	FOUND: 00
+	FOUND: 10
+	FOUND: 11
+	FOUND: expansions = 2
+
+Test permitted3 passed
+
+	FOUND: 00
+	EXPECTED: 01
+	ACTUAL: 10
+	FOUND: 11
+	FOUND: expansions = 2
+
+Test permitted4 failed
+
+	FOUND: 000
+	FOUND: 001
+	FOUND: 101
+	FOUND: 111
+	EXPECTED: expansions = 3
+	ACTUAL: expansions = 4
+
+Test permitted5 failed
+
+	FOUND: 000
+	FOUND: 100
+	EXPECTED: 101
+	ACTUAL: 110
+	FOUND: 111
+	FOUND: expansions = 3
+
+Test permitted6 failed
+
+	FOUND: 0001
+	FOUND: 1001
+	FOUND: 1101
+	FOUND: 1111
+	EXPECTED: expansions = 4
+	ACTUAL: expansions = 3
+
+Test permitted7 failed
+
+	FOUND: 00000
+	FOUND: 00010
+	FOUND: 00110
+	FOUND: 10110
+	FOUND: 11110
+	FOUND: 11111
+	EXPECTED: expansions = 8
+	ACTUAL: expansions = 5
+
+Test permitted8 failed
+
+	FOUND: 00000
+	FOUND: 00010
+	FOUND: 10010
+	FOUND: 11010
+	FOUND: 11110
+	FOUND: 11111
+	EXPECTED: expansions = 8
+	ACTUAL: expansions = 5
+
+Test permitted9 failed
+
+	FOUND: 00000
+	EXPECTED: 00100
+	ACTUAL: 10000
+	EXPECTED: 01100
+	ACTUAL: 10100
+	EXPECTED: 01110
+	ACTUAL: 11100
+	EXPECTED: 01111
+	ACTUAL: 11110
+	FOUND: 11111
+	FOUND: expansions = 5
+
+Test permitted10 failed
+
+	FOUND: 00100
+	FOUND: 01100
+	FOUND: 01101
+	FOUND: 11101
+	FOUND: 11111
+	FOUND: expansions = 4
+
+Test permitted11 passed
+
+	FOUND: No transformation
+	FOUND: expansions = 2
+
+Test permitted12 passed
+
+	FOUND: 01000010
+	FOUND: 11000010
+	FOUND: 10000010
+	FOUND: 10000011
+	FOUND: 00000011
+	FOUND: 00100011
+	EXPECTED: 00110011
+	ACTUAL: 00100010
+	EXPECTED: 00110001
+	ACTUAL: 00100110
+	EXPECTED: 00110101
+	ACTUAL: 10100110
+	EXPECTED: 00110100
+	ACTUAL: 10100100
+	EXPECTED: 00111100
+	ACTUAL: 10101100
+	EXPECTED: 00011100
+	ACTUAL: 00101100
+	EXPECTED: 10011100
+	ACTUAL: 00111100
+	EXPECTED: 10011110
+	ACTUAL: 00011100
+	EXPECTED: 11011110
+	ACTUAL: 10011100
+	EXPECTED: 11111110
+	ACTUAL: 10011110
+	EXPECTED: 11111111
+	ACTUAL: 11011110
+	EXPECTED: expansions = 41
+	ACTUAL: 11111110
+	EXTRA: 11111111
+	EXTRA: expansions = 38
+
+Test permitted13 failed
+
+WARNING: Fewer lines in comp file than in source file.
+	MISSING: No transformation
+	MISSING: expansions = 247
+
+Test permitted14 failed
+
+	FOUND: 00000000
+	EXPECTED: 00000001
+	ACTUAL: 10000000
+	EXPECTED: 00000011
+	ACTUAL: 11000000
+	EXPECTED: 00000111
+	ACTUAL: 11100000
+	EXPECTED: 00001111
+	ACTUAL: 11110000
+	EXPECTED: 00011111
+	ACTUAL: 11111000
+	EXPECTED: 00111111
+	ACTUAL: 11111100
+	EXPECTED: 01111111
+	ACTUAL: 11111110
+	FOUND: 11111111
+	FOUND: expansions = 8
+
+Test permitted15 failed
+
+Failed 10 tests:
+	Test permitted4
+	Test permitted5
+	Test permitted6
+	Test permitted7
+	Test permitted8
+	Test permitted9
+	Test permitted10
+	Test permitted13
+	Test permitted14
+	Test permitted15

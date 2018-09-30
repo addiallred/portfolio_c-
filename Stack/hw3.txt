@@ -1,0 +1,150 @@
+problem 2
+a. First analysing the inner part of the program, we have
+that the first for loop running from j = i j <n the inner
+part of the loop is a push which runs in constant time
+so the summation here is 1, this can 
+be converted into a summation that in which j = i and
+it ranges upto n over 1. when evaluating this we will get
+that it is theta of n - i. the second for loop that follows
+after this statement inner part runs in theta of 1 because 
+to pop the element is 1 constant time. so we are summing
+over k = n and k > i while we are reducing the value of k. 
+this is the same as the for loop before, but the order is reversed
+so the run time is also n -i. stepping out, we have an over arching
+for loop that goes from i = 0 to n. When we sum this over the 
+addition of the two inner for loop runtimes we get 
+n^2 - ni) + (n^2 - ni), where i is just a constant value. 
+the while loop run time is theta of 1 since for every time we
+push a value we also pop it, so we don't iterate through the 
+while loop. so the theta run time of this program is n^2. 
+
+b.  When we run this function for an arbitrary n value, for 
+the first iteration, it continues to lower the values of curr
+until it reaches that of the current value of n. once it reaches the
+lowest value, it returns from the function, and then the next call of
+what the original curr and n were both -1. for example if we have func(6,6)
+we would do func(5,6) func(4,6) func(3,6) func(2,6) func(1,6) func(0,6) and
+then we would return and we would then make the call func(5,5), we continue
+decreasing curr until it is 0 then make the func(4,4) continue to make this 0, 
+we continue to do this until we reach the case when all possible iterations 
+have been made till func(0,0). since for each function we are making
+a total of cur value calls of func until it reaches 0, as we sum from 
+i = 0 to n where we are summing over the cur which runs n times. when
+we do this, we get n^2, so our growth time for this program is theta
+n^2. 
+
+c. For part c, we can first quickly observe the first for loop and realize
+this runs in n time because it ranges for i of 1 to i =n, thus it will run
+n times, and the inner function has a constant time rate so 1*n = n. moving 
+down to the while statement, we can begin to evaluate the inner workings of
+the while loop. When we first do the loop, swap is false, so we take
+the front of the queue, which is of value 1, move it to the back of
+the queue, and delete where it use to be in the front of the queue so 1 is
+only in the list once, and then swamp becomes true. after doing this, it
+will do the while loop again since the queue isn't empty because we just took
+the front element and moved it to the back. we will go into the if statement
+and we find that 1 isn't at the front, so we delete the item at the front
+and then we set swap to false. so far, everything we have done has been 
+constant time so sumation of executions is 1, so the only thing that 
+will determine the growth rate will be the summation over the
+number of iterations of the while loop, if we continue to 
+execute the while loop, we will notice that a total of n iterations will 
+occur of calling the while loop, and while doing this, it will get rid of
+n/2 elements in the queue. after it removes n/2 elements, we will reach that 
+our front is one, and we will enter the for loop. the for loop runs only one
+time regarldess of the size of n, so the run time of the for loop
+is miniscule to the actual call of the function so we don't need to consider it
+for the growth rate since it will only be called one time out of the n number
+of times that we go through the while loop. The while loop
+will continue to run since the queue isn't empty, and since there is no longer
+a 1 element in the queue, since n more elements were added to the function and
+we already had an existing n/2, the program deletes
+a node everother while loop, so it will take approximately 2(n+n/2) 
+iterations of the while loop to delete every single node. 
+which is rougly simplified into 3n runs of the while loop until the new
+values that were added are deleted.
+the total while loop runs n + 3n calls, which evaluate just to n. looking back
+at the for loop ahead, we still have n, so n + n = 2n, so the run time of this 
+program is just n. 
+
+d.  When evaluting this program, creating the struct takes constant time
+so we know all calls or references to the nodes will run in constant time
+the first for loop is from 0 to n with constant operations occuring inside of 
+it so it will run in theta of n. Looking at the second for loop if we look at the 
+inner most part of the for loop, we see a for loop inside only runs when 
+the condition of the if statement. This if statement is dependent upon the value
+of i that exist in the over arching for loop. Assuming the array is all values
+of 0, when i = 1 the function runs n times, when i is 2 it enters the if statement 
+n/2 times if i = 3 it enters the if statement n/3 times, if i = 4 it enters
+n/4, summing this and pulling the n out of all values, we get 1 + 1/2 + 1/3
++ 1/4 + 1/5.... + 1/n, which results in logn. when we times it by n that 
+we pulled out we get nlogn. Besides the if statement, with in the while loop
+we call curr->next which results in being called n times through the 
+while loop. Then we can step back and evaluate the summation of the for loop
+we have that the for loop runs n times. Summing this over nlogn +n we get
+n^2(logn) + n^2. Steping out again and looking at the whole function
+we get n^2(logn) + n^2 + n + 1. so our theta is n^2(logn)
+
+
+problem 3
+
+a. When we call somefunc n times, the inner part of some func is all constant
+besides the call to both foo and bar. a call to bar has run time of n^2, where
+as the call to some bar has a run time of logn. so the inner part of somefunc
+run time is n^2 + logn, when we call somefunc n times this becomes n(n^2 + logn)
+which when simplified, the worst-case run time is n^3. 
+
+b. The amoritized runtime for somefunc is n. When we analysis this program
+we can observe that for a value of n, bar will on average only be called
+once, meaning that foo() will be called (n-1) times. when you do 
+1*n^2 + log(n)(n-1)/n which is the summation for the ammertized analysised 
+divided by the total number of calls that were made to the function it 
+simplifies into n + logn - logn/n, so the amortized runtime analysis is 
+n. 
+
+c. The amoritized runtime for somefunc is n. When we analysis this program
+we can observe that for a value of n, bar will on average only be called
+once, meaning that foo() will be called (n-1) times. when you do 
+1*n^2 + nlog(n)(n-1)/n which is the summation for the ammertized analysised 
+divided by the total number of calls that were made to the function it 
+simplifies into n + nlogn - logn/n, so the amortized runtime analysis is 
+nlogn.
+
+d. Given arbitrary values of n and max, the worst run time of calls between
+somefunc and another func would be calling another twice then somefunc twice
+then another func twice, and somefunc twice, over and over again. This is
+because when we look at the function of somefunc and another func, we can
+observe that if we execute bar in somefunc, there after we will 
+increase the max by *2 and increase n, if we then call another fun, we
+will decrease the value of n and see if it is less than that of max divided by 2.
+the way the functions interplay is that if you make two calls two somefunc and then
+two calls to another func, since you are increasing and decreasing the value
+of max by a factor of *2 or /2, this order provideds the worst case run time
+because it will hit bar every other call. this is because we will simplify
+and manipulate n and max until they are similar values that balance out one
+another and just between eachother. For example if n = 8 and max = 8, 
+we can call somefunc which would run bar and then have max = 16 and n = 9
+if we make one call to another func n = 8 which is not less than max/2
+so we will run else statement and call foo(). Then we will call another
+func a second time, calling it a second time has n = 7, which is less than
+16/2 so we run bar and now our max is back to eight. We call somefunc once
+we don't entehr the if statement and we call foo() and we will increase n 
+by 1, n = 8 now which is the same as max, we enter the if statement and 
+then we call bar and we increase the max to 16 again, then we continue to call
+two anotherfunc, two somefunc, two another, etc.. This causes that 
+bar will be ran every other time of the program. And we can see in the 
+example above that this is because when we get n and max to values that are close
+to one another after a series of executions, n straddles between max and max/2
+so it is just increasing the value of n by one each time. Thus the partern is 
+two another func two somefunc etc. The run time of this would be n^2. We can see
+this because since we call bar and foo every other time, bar runs n/2 times
+and foo runs n/2. Using amortized, since we know that bar runs n^2 and foo
+runs in logn and when somefunction and another function 
+run since all other operations
+run in constant time, we know that the runtime of both functions will just
+be determined by if it calls foo or if it calls bar() and since we have
+ we have (n^2)(n/2) + (n/2)(logn)/n = (n^2)/2 + (logn)/2
+which can be analyzied as the run time being n^2. In this case. We can 
+see that amortized analysis isn't really effective because the most costly 
+call is happening everyother time rather than occuring only once with 
+cheap calls being done n-1 of the other times. 
